@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IBM Reports</title>
+</head>
+<body>
+  <h1>IBM Reports</h1>
+  <ul id="records"></ul>
+
+  <script>
+    // Fetch records from the server and display them on the page
+    fetch('/records')
+      .then((response) => response.json())
+      .then((data) => {
+        const recordsList = document.getElementById('records');
+        data.forEach((record) => {
+          const listItem = document.createElement('li');
+          // listItem.textContent = `${record['DC']} - ${record['Server Name']}`;
+          listItem.textContent = `${record['DC']} - ${record['Server Name']} - ${record['Model']} - ${record['Server Name']} - ${record['Serial Number']} - ${record['In service']} - ${record['RAM (in GB)']} - ${record['License Ordering Status']} - ${record['2023-Tracking/ Handoff Ticket']} - ${record['License File']} - ${record['IBMi License Days to expire']}`;
+          recordsList.appendChild(listItem);
+        });
+      })
+      .catch((error) => console.error('Error:', error));
+  </script>
+</body>
+</html>
+
