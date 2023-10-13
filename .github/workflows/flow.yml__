@@ -27,4 +27,4 @@ jobs:
     - name: Deploy to production
       if: success()
       run: |
-        ssh sumusr@192.168.64.9 "cd /home/sumusr/projects/testworkflow  && git pull origin main && npm install && node app.js"
+        ssh user@your-server-ip "cd /path/to/your/app && git pull origin main && npm install && pm2 restart your-app-name"
